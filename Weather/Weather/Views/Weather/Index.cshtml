@@ -1,0 +1,98 @@
+﻿@using Weather.Models
+@model WeatherModel
+
+@{
+    ViewBag.Title = "Weather App";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+
+{
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Location)
+        @Html.TextBoxFor(model => model.Location, new {Class = "form-control"})
+        @Html.ValidationMessageFor(model => model.Location)
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.WindSpeedUnit)
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.RadioButtonFor(model => model.WindSpeedUnit, "Mph", new { @checked = true })
+        @Html.Label("Mph")
+        @Html.RadioButtonFor(model => model.WindSpeedUnit, "Kmh")
+        @Html.Label("Kmh")
+        @Html.ValidationMessageFor(model => model.WindSpeedUnit)
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.TemperatureUnit)
+
+    </div>
+
+    <div class="form-group">
+        
+        @Html.RadioButtonFor(model => model.TemperatureUnit, "Celsius", new { @checked = true })
+        @Html.Label("Celsius")
+        @Html.RadioButtonFor(model => model.TemperatureUnit, "Fahrenheit")
+        @Html.Label("Fahrenheit")
+        @Html.ValidationMessageFor(model => model.TemperatureUnit)
+
+    </div>
+
+    <input type="submit" class="btn btn-default"/>
+
+    <div class="panel-footer">
+        <h3>Average weather for <strong>@Html.DisplayFor(model => model.Location)</strong></h3>
+        <table class="table">
+            <tr>
+                <th colspan="2">
+                    Wind Speed
+                </th>
+                <th colspan="2">
+                    Temperature
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Unit
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Unit
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.WindSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.WindSpeedUnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Temperature)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TemperatureUnit)
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}
