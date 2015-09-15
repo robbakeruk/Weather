@@ -2,9 +2,11 @@
 .NET Weather Application
 
 ##Solution keypoints
-- created adapters to simplify interfaces and abstract from underlying packages being used
-- favoured composition over inheritance to simplify design and support better re-use of services
-- includes unit and integration tests using XUnit
+- Created adapters to simplify interfaces and abstract from underlying packages being used
+- Favoured composition over inheritance to simplify design and support better re-use of services
+- Use repository pattern for retrieve data from weather api's
+- Use Ninject for dependency injection
+- Includes unit and integration tests using XUnit
 
 ##Requirements
 
@@ -37,8 +39,8 @@ Do this straight away in the AggregatorService to avoid any unneccesary processi
 I have created an adapter for the RESTSharp interaction. In the adapter I haandle HTTP code 200, all other responses are treated as failures
 
 
-##Things I would have done with more time:
+##Extensions:
 
 - Improve test coverage - I ran out of time, but need to add further tests for WeatherAggregatorService and WeatherController.
 - Improve usability of UI - use Ajax to get weather results, improve look and feel
-- Threading - currently the solution is all synchronous - would look to leverage TPL to improve performance.
+- Threading - currently the solution is all synchronous - would look to leverage TPL to improve performance e.g. retrieving weather from api calls should defintely be done async
