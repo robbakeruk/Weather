@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Weather.Service.Models;
@@ -70,10 +71,10 @@ namespace Weather.Service.Services
             {
                 aggregatedResponse = new AggregatedWeatherResponse
                 {
-                    AverageTemperatureCelsius = weatherServiceResponses.Average(a => a.TemperatureCelsius),
-                    AverageTemperatureFahrenheit = weatherServiceResponses.Average(a => a.TemperatureFahrenheit),
-                    AverageWindSpeedKph = weatherServiceResponses.Average(a => a.WindSpeedKph),
-                    AverageWindSpeedMph = weatherServiceResponses.Average(a => a.WindSpeedMph)
+                    AverageTemperatureCelsius = Math.Round(weatherServiceResponses.Average(a => a.TemperatureCelsius), 1),
+                    AverageTemperatureFahrenheit = Math.Round(weatherServiceResponses.Average(a => a.TemperatureFahrenheit), 1),
+                    AverageWindSpeedKph = Math.Round(weatherServiceResponses.Average(a => a.WindSpeedKph), 1),
+                    AverageWindSpeedMph = Math.Round(weatherServiceResponses.Average(a => a.WindSpeedMph), 1)
                 };
             }
 

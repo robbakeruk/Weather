@@ -17,6 +17,7 @@ namespace Weather.Test.Unit
         public void GetDependenciesCalledWithCorrectParamsTest()
         {
             //Arrange
+            const string location = "TestLocation";
             var container = new Container();
             var stubRestClient = MockRepository.GenerateStub<IRestClientAdapter>();
             var stubJsonConverter = MockRepository.GenerateStub<IJsonConvertAdapter>();
@@ -34,8 +35,7 @@ namespace Weather.Test.Unit
             {
                 Resource = "TestResource",
                 ServiceUrl = "TestUrl"
-            };
-            const string location = "TestLocation";
+            };         
             var urlSegment = new Dictionary<string, string> {{"location", location}};
 
             stubRestClient.Stub(x => x.Get(Arg<string>.Is.Anything, Arg<string>.Is.Anything, Arg<Dictionary<string, string>>.Is.Anything))

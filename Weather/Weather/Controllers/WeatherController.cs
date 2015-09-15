@@ -22,7 +22,7 @@ namespace Weather.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Index(WeatherModel model)
+        public ActionResult Index(WeatherModel model)
         {
             if (ModelState.IsValid)
             {
