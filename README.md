@@ -44,3 +44,4 @@ I have created an adapter for the RESTSharp interaction. In the adapter I handle
 - Improve test coverage - I ran out of time, but need to add further tests for WeatherAggregatorService and WeatherController.
 - Improve usability of UI - use Ajax to get weather results, improve look and feel
 - Threading - currently the solution is all synchronous - would look to leverage TPL to improve performance e.g. retrieving weather from api calls should defintely be done async
+- Consider putting the Weather.Services being a REST service if other apps require use of service
