@@ -24,7 +24,7 @@ Using RESTSharp have set a timeout of 15 seconds, if service either fails (HTTP 
 
 #####Given temperatures of 10c from bbc and 68f from accuweather when searching then display either 15c or 59f (the average).
 
-Use LINQ to get average of values and use UnitsNet package for conversions between units. 
+Use LINQ to get average of values and use UnitsNet package for conversions between units. Units tests exist to test this requirement. 
 
 #####Given wind speeds of 8kph from bbc and 10mph from accuweather when searching then display either 12kph or 7.5mph (the average).
 
