@@ -1,7 +1,7 @@
 # Weather
-.NET Weather Application
 
 ##Solution keypoints
+- Use of ASP.NET MVC for front end
 - Created adapters to simplify interfaces and abstract from underlying packages being used
 - Favoured composition over inheritance to simplify design and support better re-use of services
 - Use repository pattern for retrieve data from weather api's
@@ -12,11 +12,11 @@
 
 #####Allow the user to choose which measurement unit they want results displayed in (mph, kph, Celsius, Fahrenheit).
 
-Achieved by adding radio button controls in UI to select unit of measurement
+Achieved by adding radio button controls in UI to select unit of measurement. Made a call to do conversion to all units despite what user selects in UI - simplifies interface as don't need to pass the unit to the service, just need to bind to the correct value in UI
 
 #####Allow for more APIs to be easily added in the future.
 
-Created an object to manage registration of service (WeatherServiceStore). Iterate over a collection of services and call common repository. Have made an assumption that future api calls will follow a similar url pattern 
+Created an object to manage registration of service (WeatherServiceStore). Iterate over a collection of services and call common repository. Have made an assumption that future api calls will follow a similar url pattern e.g. the WeatherRepository assumes location is part of the url.
 
 #####Handle one or more of the APIs being down or being slow to respond.
 
@@ -36,7 +36,7 @@ Do this straight away in the AggregatorService to avoid any unneccesary processi
 
 #####Handle HTTP error codes from the APIs without displaying these to the user.
 
-I have created an adapter for the RESTSharp interaction. In the adapter I haandle HTTP code 200, all other responses are treated as failures
+I have created an adapter for the RESTSharp interaction. In the adapter I handle HTTP code 200, all other responses are treated as failures
 
 
 ##Extensions:
